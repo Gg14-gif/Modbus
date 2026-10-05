@@ -10,6 +10,9 @@ PORT = 'COM5'
 
 slave = ModbusClient(port = PORT, baudrate =9600, stopbits=1, bytesize=8, parity='N')
 
+import logging
+logging.basicConfig()
+logging.getLogger().setLevel(logging.DEBUG)
 def Modbus():
     if not slave.connect():
         print(f"FEHLER: Verbindung auf {PORT} konnte nicht hergestellt werden ESP32 eingesteckt? ")
